@@ -1,0 +1,54 @@
+class SharePrefUtil {
+    companion object {
+        private const val PREF_APP = "pref_app"
+
+        fun saveStringData(context: Context, key: String, strToSave: String) {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putString(key, strToSave)
+            editor.apply()
+        }
+
+        fun getStringData(context: Context, key: String, defalutValue: String): String {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            return sharedPref.getString(key, defalutValue).toString()
+        }
+
+    
+        fun saveIntData(context: Context, key: String?, intToSave: Int) {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putInt(key, intToSave)
+            editor.apply()
+        }
+
+        fun getIntData(context: Context, key: String, defalutValue: Int): Int {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            return sharedPref.getInt(key, defalutValue)
+        }
+
+        fun saveLongData(context: Context, key: String, longToSave: Long) {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putLong(key, longToSave)
+            editor.apply()
+        }
+
+        fun getLongData(context: Context, key: String, defalutValue: Long): Long {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            return sharedPref.getLong(key, defalutValue)
+        }
+
+        fun saveBoolData(context: Context, key: String, boolToSave: Boolean) {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putBoolean(key, boolToSave)
+            editor.apply()
+        }
+
+        fun getBoolData(context: Context, key: String?, defalutValue: Boolean): Boolean {
+            val sharedPref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE)
+            return sharedPref.getBoolean(key, defalutValue)
+        }
+    }
+}
